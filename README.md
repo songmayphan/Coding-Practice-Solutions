@@ -1,6 +1,16 @@
-# CodeWars-Solutions
-A compilation of all my CodeWars solutions that I have passed, just to keep track of progress
+# Coding Platform Solutions - Compilation
 
-Current Rank: 7 Kyu 90%
-Last upranked: Jun 15th 2018
+## CodeWars
+
+https://www.codewars.com/users/mayphan
+
+## Codility
+
+https://app.codility.com/programmers/lessons
+
+## Hackerrank 
+
+https://www.hackerrank.com/songmayphan
+
+
 
