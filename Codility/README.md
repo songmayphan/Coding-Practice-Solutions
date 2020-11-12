@@ -241,18 +241,32 @@ In second 6, a leaf falls into position 5. This is the earliest time when leaves
 
 
 ## Deduction:
-1) Find A[K]
-2) if A[K] == X and A[0] -> A[K] != 0 , then return K
-
+1) Linear search
 ## My Solution
 
 ```
-X_arr = list(range(X))
-    for K in range(len(A)):
-        if A[K] in X_arr:
-            continue
-        if A[K] == X:
-            return K
-
+def solution(X, A):
+    # write your code in Python 3.6
+    count = 0
+    #preallocate an array with all false value length of X
+    # we will return the time if all the values in check is True
+    check = [False] * X 
+    for K, leaf in enumerate(A):
+        if leaf <= X:
+            #then the position has been filled,
+            #flip the boolean at that position - 1
+            check[leaf - 1] = True
+            #check the position in check now
+            
+            while check[count] == True:
+                count+=1
+                if count == X:
+                    return K
+    return -1
 
 ```
+## Time complexity 
+O(N)
+
+## Score 
+100%
