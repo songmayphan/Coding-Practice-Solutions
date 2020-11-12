@@ -5,6 +5,7 @@
 
 ### My solution
 ``
+
  def makeAnagram(a, b):
      common = Counter(a) & Counter(b)
      print(common)
@@ -16,6 +17,8 @@
      print(ans_b)
      ans = ans_a + ans_b
      return ans
+     
+     
 ``     
 ### Time complexity
 O(1), passed all test cases
