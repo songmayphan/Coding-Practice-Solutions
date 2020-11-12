@@ -24,24 +24,25 @@ O(1), passed all test cases
 ## Alternating Characters
  return an integer representing the minimum number of deletions to make the alternating string.
 Sample input
-`
+``
 5
 AAAA
 BBBBB
 ABABABAB
 BABABA
 AAABBB
-`
+``
 Sample output
-`
+```
 3
 4
 0
 0
 4
-`
+```
 ### My Solution
-``
+````
+
 def alternatingCharacters(s):
     se = list(s)
     count = 0
@@ -54,14 +55,15 @@ def alternatingCharacters(s):
             continue
     
     return count
-``
+````
+
 ### Time Complexity
 O(N), N is the length of the string
 passed all test cases
 
 
 ## Sherlock and the Valid String
-(Sherlock and the Valid String)[https://www.hackerrank.com/challenges/sherlock-and-valid-string/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings&h_r=next-challenge&h_v=zen\
+[Sherlock and the Valid String](https://www.hackerrank.com/challenges/sherlock-and-valid-string/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings&h_r=next-challenge&h_v=zen)
 
 ### My Solution
 
