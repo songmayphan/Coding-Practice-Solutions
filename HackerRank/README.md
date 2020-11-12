@@ -4,7 +4,7 @@
 
 
 ### My solution
-
+``
  def makeAnagram(a, b):
      common = Counter(a) & Counter(b)
      print(common)
@@ -16,7 +16,7 @@
      print(ans_b)
      ans = ans_a + ans_b
      return ans
-     
+``     
 ### Time complexity
 O(1), passed all test cases
 
@@ -61,7 +61,7 @@ passed all test cases
 
 
 ## Sherlock and the Valid String
-[Sherlock and the Valid String] (https://www.hackerrank.com/challenges/sherlock-and-valid-string/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings&h_r=next-challenge&h_v=zen)
+(Sherlock and the Valid String)[https://www.hackerrank.com/challenges/sherlock-and-valid-string/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings&h_r=next-challenge&h_v=zen\
 
 ### My Solution
 
