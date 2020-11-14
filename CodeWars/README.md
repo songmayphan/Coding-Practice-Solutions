@@ -1,5 +1,6 @@
 # 7 Kyu Rank Up
 After completing all the problems below, ranked up from 7 Kyu to 6 Kyu 
+![Badge](https://www.codewars.com/users/mayphan/badges/large)
 
 ## Stats
 ```
