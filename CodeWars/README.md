@@ -1,4 +1,13 @@
 # 7 Kyu Rank Up
+After completing all the problems below, ranked up from 7 Kyu to 6 Kyu 
+Stats
+```
+Overall:6 kyu / 1.3%
+Java:7 kyu / 44.6%
+JavaScript:8 kyu / 40.0%
+Python:7 kyu / 8.9%
+
+```
 
 ## Find the Divisors
 
