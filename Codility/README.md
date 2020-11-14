@@ -270,3 +270,73 @@ O(N)
 
 ## Score 
 100%
+
+
+
+# Permcheck
+ given array A such that:
+
+    A[0] = 4
+    A[1] = 1
+    A[2] = 3
+    A[3] = 2
+the function should return 1.
+
+Given array A such that:
+
+    A[0] = 4
+    A[1] = 1
+    A[2] = 3
+the function should return 0.
+
+## Deduction
+must check for max value in the array, that would be how many values we have to traverse through
+In this case, best time complexity cannot be lower than O(N), where N is the number of values
+unless we find a way to check N/2 values
+## My brute force Solution
+```
+def solution(A):
+    # write your code in Python 3.6
+    ans =sorted(A)
+    N = max(A)
+    for i in range(1, N):
+        if i in ans:
+            continue
+        else: 
+            return 0
+    return 1
+
+```
+This was my initial solution, but it had flaws. It does not check for duplicates.
+We Must check for doubles as well, because the definition of permutation indicate that each value only occur once. 
+As I analyzed this further, I notice the length of the array and its max value have a correlation.
+below is my final edit of the code
+
+```
+def solution(A):
+
+    temp = len(A)
+    #list and set combination will sort the set, remove duplicates and then turn into an array again
+    
+    sort_A = list(set(A))
+    
+    # comparing length between original A and sorted A
+    # if it's not the same, meaning there is a duplicate -> not permutation
+    if temp != len(sort_A):
+        return 0
+    
+    # check for missing values
+    # after sorted, if it's a permutation, then all values must be in its position
+    # therefore length of sort_A must be equal to its max value. If not > not permutation
+    max_val = max(A)
+    if len(sort_A) != max_val:
+        return 0
+        
+    # All other cases will be a permutation
+    return 1
+
+```
+## Time complexity
+This solution has O(N) complexity where N is the number of values in the array.
+## Score
+100%
