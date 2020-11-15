@@ -19,9 +19,19 @@ def unitproduced(cost, salvaged, units, unitsperyear):
 
 #Calculate APR: 
 
-def apr(interest, money, time):
+def apr(discount, rate, money, time):
+	new_money = 0
+	new_rate = 0
+	if discount == 0:
+		return "APR is: {apr} %".format(apr = ((money * rate) / (money * time)) * 100 )
 
-	return "APR is: {apr} %".format(apr = (interest / (money * time)) * 100 )
+	else:
+		discount_amt = money * discount
+		new_money = money - discount_amt  # this is the discounted price
+		print("You're only getting ${new_money} out of ${money}. You must return the full amount of ${money}".format(new_money = new_money, money = money))
+
+		new_APR = discount_amt / new_money
+		return "APR is {new_APR}%".format(new_APR = round(new_APR * 100, 2))
 
 # calculate straight interest
 
@@ -47,10 +57,19 @@ def disposal(book_value, residual, acc_dep, sold):
 	else:
 		return "Gain for {sale}".format(sale=sale)
 
+# Goodwill
+def goodwill(purchase, liabilities, fv_assets):
+	fv_net = fv_assets -liabilities
+	goodwill = purchase - fv_net
+	return "Goodwill is ${gw}".format(gw = goodwill)
 
 
+#Profit margin 
 
+def profit_margin(gross_profit_ratio, production_cost):
+	gpr = gross_profit_ratio / 100
 
+	return "You should sell for ${ans}".format(ans= round(production_cost / (1-gpr), 2))
 
 #double decline rescursion 
 
@@ -124,7 +143,7 @@ def double_decline(cost, useful,salvaged):
 ### Main ###-------------------------------------------------------------------------
 
 print("Calculate Annual depreciation expense using different methods")
-method = input ("Enter 1 for straightline depreciation method, 2 for units produced, or 3 for Double decline method, 4 for Disposal assets, 5 for APR, 6 for Straight interest>> ")
+method = input ("Enter 1 for straightline depreciation method, 2 for units produced, or 3 for Double decline method, 4 for Disposal assets, 5 for APR, 6 for Straight interes, 7 for goodwill, 8 for profit margin>> ")
 
 method = int(method)
 
@@ -176,18 +195,36 @@ elif method == 4:
 
 elif method == 5: 
 	print("Calculating APR .....")
-	interest = int(input("Enter the interest paid >>"))
 	money = int(input("Enter the amount borrowed>>"))
+	discount = float(input("Enter the discount rate in decimal point (enter 0 if not applicaple) >>"))
+	rate= float(input("Enter the interest rate (in decimal points) >>"))
 
 	time = int(input("How long is the money borrowed for(years)? >>"))
 
-	print(apr(interest, money, time))
-else: 
+	print(apr(discount,rate, money, time))
+elif method == 6: 
 	print("Calculating Straight Interest......")
 
-	principal = int(input("Enter the amout borrowed>> "))
+	principal = int(input("Enter the amount borrowed>> "))
 	rate = float(input("What is the rate? Enter in decimal point >>> "))
 	time = int(input("How long do you have to pay? (in years) >> "))
 
 	print(straight_interest(principal, rate, time))
+	print("Remember that you still have to book the interest monthly in your account, even if you're paying it in a year")
+	print("Book an interst PAYABLE on the CREDIT side with the monthly interest")
+	print("Recognize an interest EXPENSE on the DEBIT side, with the same amount")
 
+elif method == 7:
+	print("Calculating Goodwill....")
+	purchase = int(input("How much did the company was purchased for? >>> "))
+	liabilities = int(input("How much liabilities does the company assumed? >>> "))
+	fv_assets = int(input("What is the company's fair assets value? >> "))
+	print(goodwill(purchase, liabilities, fv_assets))
+elif method == 8:
+	print("Calculating how much to sell for a product.....")
+	gross_profit_ratio = int(input("What's the Gross profit ratio? enter in percentage >>> "))
+	production_cost = int(input("How much did it cost to make? >>"))
+	print(profit_margin(gross_profit_ratio, production_cost))
+
+     
+     
